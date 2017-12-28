@@ -1,0 +1,42 @@
+public class Hello
+{
+    boolean unique(long num)
+    {
+        String str=String.valueOf(num);
+        for(int i=0;i<=str.length()-1;i++)
+        {
+            char ch=str.charAt(i);
+            for(int j=i+1;j<=str.length()-1;j++)
+            {
+                if(str.charAt(j)==ch)
+                    return false;
+            }
+        }
+        return true;
+
+    }
+    
+    boolean perfect(long num)
+    {
+        if(Math.sqrt(num)%1== 0)
+            return true;
+        else 
+            return false;
+    }
+    public static void main(String args[])
+    {
+        Hello hello=new Hello();
+        System.out.println("Please wait... Calculating...");
+        long min=(long)Math.pow(10,9);
+        long max=(long)Math.pow(10,10);
+        for(long i=min;i<max;i++)
+        {
+            if(hello.unique(i)==true & hello.perfect(i)==true)
+            {
+                System.out.println(i);
+               // break;
+            }
+        }
+        System.out.println("...Calculated.");
+    }
+}
